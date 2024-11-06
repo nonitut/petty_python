@@ -24,4 +24,3 @@ pip install pandas==1.5.3
 pip install --upgrade pandas
 ```
 
-**Примечание**: `pip install` можно выполнять как в основном окружении Python, так и внутри виртуального окружения.
