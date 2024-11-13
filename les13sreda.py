@@ -1,28 +1,20 @@
-# сигментация по городу и по штату 
-# Пандас для работы с xlsx 
-
 import pandas as pd
-file_path = "orders_data.xlsx"
+import numpy as np
+import matplotlib.pyplot as plp
+import seaborn as sns
+file_path = "train.csv"
+# source venv/bin/activate
+# pip install matplotlib
 
-data = pd.read_excel(file_path)
-# попросили прочитать файл [171 rows x 12 columns]
-# print(data)
+data = pd.read_csv(file_path)
+print(data.head(10)) # вывели первые 10 строк
+print(data.dtypes) # вывели типы данных
 
-# .iloc - свойство 
-# first_ten_rows = data.iloc[:10]
-# print(first_ten_rows)
+desc_stat = data.describe()
+# print(desc_stat) # статистика по таблице(иногда выыдает толковое что то)
 
-slovarcity = {}
-hranitel = data.iloc
+plp.figure(figsize=(10,6))
+sns.heatmap(desc_stat, annot=True, cmap="YlGnBu", fmt=".2f")
+plp.title("naznanie_pervonachalniye")
 
-for index_row , row in enumerate(hranitel):  
-    # print(hranitel [index_row, 0])                         
-    city = (hranitel [index_row, 3])  
-    money = hranitel [index_row, 8]
-    money = money.replace("₹", "").strip()
-    if city in slovarcity :
-        slovarcity[city] += float(money)
-    else: 
-        slovarcity[city] = 0
-        
-print(slovarcity)
+plp.show()
