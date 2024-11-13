@@ -24,3 +24,7 @@ pip install pandas==1.5.3
 pip install --upgrade pandas
 ```
 
+# Устанавливает Matplotlib для создания графиков и визуализаций данных
+```bash
+pip install matplotlib
+```
