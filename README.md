@@ -9,17 +9,17 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-### Установка библиотеки Pandas с помощью pip
+# Установка библиотеки Pandas с помощью pip
 ```bash
 pip install pandas
 ```
 
-### Установка конкретной версии Pandas
+# Установка конкретной версии Pandas
 ```bash
 pip install pandas==1.5.3
 ```
 
-### Обновление Pandas до последней версии
+# Обновление Pandas до последней версии
 ```bash
 pip install --upgrade pandas
 ```
