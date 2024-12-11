@@ -48,9 +48,3 @@ podscheti_ludey.sort_index().plot(kind='bar', color='pink')
 
 plt.tight_layout()
 plt.show()
-<<<<<<< Updated upstream
-# в слеедущий раз - кагортный вывод данных 
-=======
-
-
->>>>>>> Stashed changes
