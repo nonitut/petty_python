@@ -19,18 +19,38 @@ cursor = connect.cursor()
 data = pd.read_sql_query(
     "SELECT Genre, Age,'Annual Income (k$)', 'Spending Score (1-100)' \
     FROM popitka3", connect 
-    )  # data frame - для хранения данных "\" - перенос строки df - data frame
+    )  # data frame - для хранения данных "\" - перенос строки df - data frame, может быть просто data
+
 
 connect.close()
 # закрываем bd
 
 sns.set(style="whitegrid")
-fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+fig, axes = plt.subplots(1, 1, figsize=(8, 8))
 # axes - массив область для рисования графика 
 
-sns.countplot(x="Age", data=data , ax=axes [0,0]) # sns.countplot - для под счета данных
-axes[ 0, 0 ].set_title("Age")
+# sns.countplot(x="Age", data=data , ax=axes [0,0]) # sns.countplot - для под счета данных
+# axes[ 0, 0 ].set_title("Age")
+
+
+
+# создаем когорты - bins (границы данных)
+
+bins = [0, 18, 25 , 35, 42, 55, 120 ]
+zagolovki_dlya_stolbcov = [ "0-18", "19-25" , "26-35", "36-42", "43-55", "56+"]
+
+data['Age Group'] = pd.cut(data['Age'], bins=bins, labels=zagolovki_dlya_stolbcov, right=False)
+
+podscheti_ludey = data['Age Group'].value_counts()
+print(podscheti_ludey)
+
+podscheti_ludey.sort_index().plot(kind='bar', color='pink')
 
 plt.tight_layout()
 plt.show()
+<<<<<<< Updated upstream
 # в слеедущий раз - кагортный вывод данных 
+=======
+
+
+>>>>>>> Stashed changes
