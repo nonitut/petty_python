@@ -27,8 +27,6 @@ connect.close()
 sns.set(style="whitegrid")
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 # axes - массив область для рисования графика 
-# новый текст
-
 
 sns.countplot(x="Age", data=data , ax=axes [0,0]) # sns.countplot - для под счета данных
 axes[ 0, 0 ].set_title("Age")
