@@ -26,12 +26,11 @@ connect.close()
 # закрываем bd
 
 sns.set(style="whitegrid")
-fig, axes = plt.subplots(1, 1, figsize=(8, 8))
+fig, axes = plt.subplots(2, 2, figsize=(6, 6))
 # axes - массив область для рисования графика 
 
 # sns.countplot(x="Age", data=data , ax=axes [0,0]) # sns.countplot - для под счета данных
 # axes[ 0, 0 ].set_title("Age")
-
 
 
 # создаем когорты - bins (границы данных)
@@ -44,7 +43,12 @@ data['Age Group'] = pd.cut(data['Age'], bins=bins, labels=zagolovki_dlya_stolbco
 podscheti_ludey = data['Age Group'].value_counts()
 print(podscheti_ludey)
 
-podscheti_ludey.sort_index().plot(kind='bar', color='pink')
+podscheti_ludey.sort_index().plot(kind='bar', color='pink', ax=axes[0])
+# выводим возраст + разделение по гендеру 
+
+desc_Gender = data["Genre"].value_counts()
+axes[1].bar(desc_Gender.index, desc_Gender.values, color=['blue', 'orange'])
 
 plt.tight_layout()
 plt.show()
+
